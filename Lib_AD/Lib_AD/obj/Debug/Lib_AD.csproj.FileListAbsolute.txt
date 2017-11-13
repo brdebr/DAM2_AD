@@ -1,0 +1,11 @@
+/home/brybre/Projects/Lib_AD/Lib_AD/obj/Debug/Lib_AD.csprojResolveAssemblyReference.cache
+/home/brybre/Projects/Lib_AD/Lib_AD/obj/Debug/Lib_AD.csproj.CoreCompileInputs.cache
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/Lib_AD.dll
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/Lib_AD.pdb
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/glib-sharp.dll
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/gtk-sharp.dll
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/MySql.Data.dll
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/gtk-sharp.dll.config
+/home/brybre/Projects/Lib_AD/Lib_AD/bin/Debug/glib-sharp.dll.config
+/home/brybre/Projects/Lib_AD/Lib_AD/obj/Debug/Lib_AD.dll
+/home/brybre/Projects/Lib_AD/Lib_AD/obj/Debug/Lib_AD.pdb

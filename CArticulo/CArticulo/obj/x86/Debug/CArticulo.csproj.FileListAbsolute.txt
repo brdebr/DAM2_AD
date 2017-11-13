@@ -1,0 +1,7 @@
+/home/brybre/Projects/CArticulo/CArticulo/bin/Debug/CArticulo.exe
+/home/brybre/Projects/CArticulo/CArticulo/bin/Debug/CArticulo.pdb
+/home/brybre/Projects/CArticulo/CArticulo/bin/Debug/MySql.Data.dll
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Debug/CArticulo.csprojResolveAssemblyReference.cache
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Debug/CArticulo.csproj.CoreCompileInputs.cache
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Debug/CArticulo.exe
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Debug/CArticulo.pdb

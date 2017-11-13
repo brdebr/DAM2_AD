@@ -1,0 +1,4 @@
+/home/brybre/Projects/CArticulo/CArticulo/bin/Release/CArticulo.exe
+/home/brybre/Projects/CArticulo/CArticulo/bin/Release/MySql.Data.dll
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Release/CArticulo.csproj.CoreCompileInputs.cache
+/home/brybre/Projects/CArticulo/CArticulo/obj/x86/Release/CArticulo.exe

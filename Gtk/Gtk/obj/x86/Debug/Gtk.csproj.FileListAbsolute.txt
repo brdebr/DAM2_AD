@@ -1,0 +1,17 @@
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/Gtk.exe
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/Gtk.pdb
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/atk-sharp.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/gdk-sharp.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/glade-sharp.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/glib-sharp.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/gtk-sharp.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/MySql.Data.dll
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/gtk-sharp.dll.config
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/gdk-sharp.dll.config
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/glib-sharp.dll.config
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/glade-sharp.dll.config
+/home/brybre/Projects/Gtk/Gtk/bin/Debug/atk-sharp.dll.config
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Debug/Gtk.csprojResolveAssemblyReference.cache
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Debug/Gtk.csproj.CoreCompileInputs.cache
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Debug/Gtk.exe
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Debug/Gtk.pdb

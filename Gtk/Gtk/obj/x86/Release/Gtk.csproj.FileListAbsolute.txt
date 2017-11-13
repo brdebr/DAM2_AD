@@ -1,0 +1,4 @@
+/home/brybre/Projects/Gtk/Gtk/bin/Release/Gtk.exe
+/home/brybre/Projects/Gtk/Gtk/bin/Release/MySql.Data.dll
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Release/Gtk.csproj.CoreCompileInputs.cache
+/home/brybre/Projects/Gtk/Gtk/obj/x86/Release/Gtk.exe
