@@ -67,6 +67,8 @@
     <Compile Include="DbCommandHelper.cs" />
     <Compile Include="SingletonConnection.cs" />
     <Compile Include="TreeViewHelper.cs" />
+    <Compile Include="edit_Articulo.cs" />
+    <Compile Include="gtk-gui\CArticulo.edit_Articulo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UTILS\" />
