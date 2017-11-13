@@ -20,6 +20,10 @@ public partial class MainWindow : Gtk.Window
             editAction.Sensitive = treeview1.Selection.CountSelectedRows() > 0;
         };
 
+        newAction.Activated += delegate
+        {
+            new edit_Articulo();
+        };
 
         refreshAction.Activated += delegate
         {

@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{EE734DEC-F722-477F-83F8-8BDED11F6C09}|Default">
   <MonoDevelop.Ide.ItemProperties.CArticulo PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/edit_Articulo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/MainWindow.cs">
     <Files>
-      <File FileName="CArticulo/MainWindow.cs" Line="15" Column="51" />
-      <File FileName="CArticulo/SingletonConnection.cs" Line="27" Column="29" />
-      <File FileName="CArticulo/edit_Articulo.cs" Line="10" Column="10" />
+      <File FileName="CArticulo/MainWindow.cs" Line="27" Column="9" />
+      <File FileName="CArticulo/SingletonConnection.cs" Line="28" Column="34" />
+      <File FileName="CArticulo/edit_Articulo.cs" Line="20" Column="13" />
+      <File FileName="CArticulo/TreeViewHelper.cs" Line="163" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

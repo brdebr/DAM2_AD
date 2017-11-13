@@ -168,7 +168,15 @@ namespace CArticulo
                 var lista_aux = new List<string>();
                 for ( int i = 0 ; i < listStore.NColumns ; i++ )
                 {
-                    lista_aux.Add( datareader.GetString( i ) );
+                    if ( datareader.IsDBNull( i ) )
+                    {
+                        lista_aux.Add( " " );
+                    }
+                    else
+                    {
+                        lista_aux.Add( datareader.GetString( i ) );
+                    }
+
                 }
                 listStore.AppendValues( lista_aux.ToArray() );
             }
