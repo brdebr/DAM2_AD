@@ -18,7 +18,10 @@ namespace CArticulo
             {
                 this.id = id_n;
             }
-            this.nombre = nombre;
+            if ( nombre != null )
+            {
+                this.nombre = nombre;
+            }
             if ( Decimal.TryParse( precio,out precio_n ) )
             {
                 this.precio = precio_n;
@@ -144,7 +147,25 @@ namespace CArticulo
             {
                 lista.Add( datareader["nombre"].ToString() );
             }
+            datareader.Close();
             return lista.ToArray();
+        }
+
+        public static string IdCategoria( string nombre )
+        {
+            IDbCommand dbCommand = SingletonConnection.Connection.CreateCommand();
+            dbCommand.CommandText = "SELECT id FROM categoria WHERE nombre=@nombre";
+            DbCommandHelper.addParameter( dbCommand,"nombre",nombre );
+            IDataReader datareader = dbCommand.ExecuteReader();
+            //while ( datareader.Read() )
+            //{
+            //	lista.Add( datareader["nombre"].ToString() );
+            //}
+            //return lista.ToArray();
+            datareader.Read();
+            string retorno = datareader["id"].ToString();
+            datareader.Close();
+            return retorno;
         }
 
     }

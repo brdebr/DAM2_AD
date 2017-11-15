@@ -30,6 +30,11 @@
         <property name="Sensitive">False</property>
         <property name="StockId">gtk-delete</property>
       </action>
+      <action id="addAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-add</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Lista Artículos</property>
@@ -83,7 +88,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="CArticulo.edit_Articulo" design-size="358 206">
+  <widget class="Gtk.Window" id="CArticulo.edit_Articulo" design-size="358 250">
     <action-group name="Default">
       <action id="newAction">
         <property name="Type">Action</property>
@@ -107,6 +112,11 @@
         <property name="Sensitive">False</property>
         <property name="StockId">gtk-delete</property>
       </action>
+      <action id="saveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Edición Artículo</property>
@@ -116,21 +126,11 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Toolbar" id="toolbar1">
+          <widget class="Gtk.Toolbar" id="toolbar2">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_95_Stetic_Editor_ActionToolbar" type="Toolbar">
-              <node type="Toolitem" />
-              <node type="Toolitem" action="newAction" />
-              <node type="Separator" />
-              <node type="Toolitem" />
-              <node type="Toolitem" />
-              <node type="Toolitem" />
-              <node type="Toolitem" action="editAction" />
-              <node type="Separator" />
-              <node type="Toolitem" action="refreshAction" />
-              <node type="Separator" />
-              <node type="Toolitem" action="deleteAction" />
+            <node name="__gtksharp_75_Stetic_Editor_ActionToolbar" type="Toolbar">
+              <node type="Toolitem" action="saveAction" />
             </node>
           </widget>
           <packing>

@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{EE734DEC-F722-477F-83F8-8BDED11F6C09}|Default">
   <MonoDevelop.Ide.ItemProperties.CArticulo PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/TreeViewHelper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/edit_Articulo.cs">
     <Files>
       <File FileName="CArticulo/TreeViewHelper.cs" Line="46" Column="22" />
-      <File FileName="CArticulo/Articulo.cs" Line="146" Column="14" />
-      <File FileName="CArticulo/MainWindow.cs" Line="33" Column="15" />
+      <File FileName="CArticulo/Articulo.cs" Line="161" Column="16" />
+      <File FileName="CArticulo/MainWindow.cs" Line="35" Column="31" />
+      <File FileName="CArticulo/edit_Articulo.cs" Line="72" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
