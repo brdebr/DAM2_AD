@@ -1,5 +1,11 @@
 ﻿<Properties StartupConfiguration="{3DA26C2E-340A-4198-AC34-A9CCEBB56F13}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../CArticulo/CArticulo/edit_Articulo.cs">
+    <Files>
+      <File FileName="../CArticulo/CArticulo/MainWindow.cs" Line="25" Column="37" />
+      <File FileName="../CArticulo/CArticulo/edit_Articulo.cs" Line="18" Column="48" />
+      <File FileName="../CArticulo/CArticulo/TreeViewHelper.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.Gtk PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

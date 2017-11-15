@@ -22,7 +22,12 @@ public partial class MainWindow : Gtk.Window
 
         newAction.Activated += delegate
         {
-            new edit_Articulo();
+            new edit_Articulo( null );
+        };
+
+        editAction.Activated += delegate
+        {
+            new edit_Articulo( Articulo.seleccionado( treeview1 ) );
         };
 
         refreshAction.Activated += delegate

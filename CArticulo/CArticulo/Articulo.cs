@@ -9,13 +9,24 @@ namespace CArticulo
 {
     public class Articulo
     {
-
         public Articulo( string id,string nombre,string precio,string categoria_fk )
         {
-            this.id = UInt64.Parse( id );
+            UInt64 id_n;
+            Decimal precio_n;
+            UInt64 categoria_n;
+            if ( UInt64.TryParse( id,out id_n ) )
+            {
+                this.id = id_n;
+            }
             this.nombre = nombre;
-            this.precio = Decimal.Parse( precio );
-            this.categoria_fk = UInt64.Parse( categoria_fk );
+            if ( Decimal.TryParse( precio,out precio_n ) )
+            {
+                this.precio = precio_n;
+            }
+            if ( UInt64.TryParse( categoria_fk,out categoria_n ) )
+            {
+                this.categoria_fk = categoria_n;
+            }
         }
 
         public Articulo( ulong id,string nombre,decimal precio,ulong categoria_fk )
@@ -121,6 +132,19 @@ namespace CArticulo
                                 aux.GetValue( iter,2 ) as string,
                                 aux.GetValue( iter,3 ) as string );
             return art;
+        }
+
+        public static string[] categorias()
+        {
+            List<string> lista = new List<string>();
+            IDbCommand dbCommand = SingletonConnection.Connection.CreateCommand();
+            dbCommand.CommandText = "SELECT nombre FROM categoria";
+            IDataReader datareader = dbCommand.ExecuteReader();
+            while ( datareader.Read() )
+            {
+                lista.Add( datareader["nombre"].ToString() );
+            }
+            return lista.ToArray();
         }
 
     }
