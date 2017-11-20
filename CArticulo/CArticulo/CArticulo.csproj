@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -61,11 +60,11 @@
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="gtk-gui\MainWindow.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Articulo.cs" />
     <Compile Include="DbCommandHelper.cs" />
     <Compile Include="SingletonConnection.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="TreeViewHelper.cs" />
     <Compile Include="edit_Articulo.cs" />
     <Compile Include="gtk-gui\CArticulo.edit_Articulo.cs" />

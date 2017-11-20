@@ -16,14 +16,23 @@ namespace CArticulo
         {
             this.Build();
 
-            ListStore listStoreAux = new ListStore( typeof( String ) );
+            CellRendererText id_cellRenderText = new CellRendererText();
+            combo_categorias.PackStart( id_cellRenderText,false );
+            combo_categorias.AddAttribute( id_cellRenderText,"text",0 );
+            id_cellRenderText.Visible = false;
+
+            CellRendererText labe_cellRenderText = new CellRendererText();
+            combo_categorias.PackStart( labe_cellRenderText,false );
+            combo_categorias.AddAttribute( labe_cellRenderText,"text",1 );
+
+            ListStore listStoreAux = new ListStore( typeof( string ),typeof( string ) );
 
             combo_categorias.Model = listStoreAux;
 
-            string[] listaAux = Articulo.categorias();
-            for ( int i = 0 ; i < listaAux.Length ; i++ )
+            List<string[]> listaAux = Articulo.categorias();
+            for ( int i = 0 ; i < listaAux.Count ; i++ )
             {
-                listStoreAux.AppendValues( listaAux[i] );
+                listStoreAux.AppendValues( listaAux[i][0],listaAux[i][1] );
             }
             combo_categorias.Active = 0;
 
@@ -35,6 +44,18 @@ namespace CArticulo
                 entry_ID.Text = articulo.id.ToString();
                 entry_nombre.Text = articulo.nombre;
                 spin_precio.Text = articulo.precio.ToString();
+                // TODO seleccionar el que toca
+                int row = 0;
+                for ( int i = 0 ; i < listaAux.Count ; i++ )
+                {
+                    if ( UInt64.Parse( listaAux[i][0] ) == articulo.categoria_fk )
+                    {
+                        row = i;
+                    }
+                }
+                TreeIter iter;
+                combo_categorias.Model.IterNthChild( out iter,row );
+                combo_categorias.SetActiveIter( iter );
             }
 
             saveAction.Activated += delegate

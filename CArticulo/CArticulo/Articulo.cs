@@ -137,18 +137,23 @@ namespace CArticulo
             return art;
         }
 
-        public static string[] categorias()
+        public static List<string[]> categorias()
         {
-            List<string> lista = new List<string>();
+            List<string[]> lista = new List<string[]>();
             IDbCommand dbCommand = SingletonConnection.Connection.CreateCommand();
-            dbCommand.CommandText = "SELECT nombre FROM categoria";
+            dbCommand.CommandText = "SELECT id, nombre FROM categoria";
             IDataReader datareader = dbCommand.ExecuteReader();
+            string[] array_aux = { "0","--- SELECCIONAR ---" };
+            lista.Add( array_aux );
             while ( datareader.Read() )
             {
-                lista.Add( datareader["nombre"].ToString() );
+                List<string> item = new List<string>();
+                item.Add( datareader["id"].ToString() );
+                item.Add( datareader["nombre"].ToString() );
+                lista.Add( item.ToArray() );
             }
             datareader.Close();
-            return lista.ToArray();
+            return lista;
         }
 
         public static string IdCategoria( string nombre )

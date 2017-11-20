@@ -129,7 +129,7 @@
           <widget class="Gtk.Toolbar" id="toolbar2">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_75_Stetic_Editor_ActionToolbar" type="Toolbar">
+            <node name="toolbar2" type="Toolbar">
               <node type="Toolitem" action="saveAction" />
             </node>
           </widget>
@@ -293,7 +293,7 @@
                 <property name="Upper">100</property>
                 <property name="PageIncrement">10</property>
                 <property name="StepIncrement">1</property>
-                <property name="ClimbRate">1</property>
+                <property name="ClimbRate">0.1</property>
                 <property name="Digits">2</property>
                 <property name="Numeric">True</property>
               </widget>
