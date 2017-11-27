@@ -68,6 +68,7 @@ namespace CArticulo
                     if ( combo_categorias.GetActiveIter( out iter ) )
                     {
                         string nom_categoria = combo_categorias.Model.GetValue( iter,0 ).ToString();
+
                         Articulo nuevo = new Articulo( articulo_aux.id.ToString(),
                                                         entry_nombre.Text,
                                                         spin_precio.Text,

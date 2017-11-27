@@ -85,7 +85,6 @@ namespace CArticulo
             }
 
             int numColumns = lista.Count;
-
             datareader.Close();
 
             return lista;

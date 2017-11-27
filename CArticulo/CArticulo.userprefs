@@ -1,16 +1,21 @@
 ﻿<Properties StartupConfiguration="{EE734DEC-F722-477F-83F8-8BDED11F6C09}|Default">
   <MonoDevelop.Ide.ItemProperties.CArticulo PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/edit_Articulo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/Articulo.cs">
     <Files>
       <File FileName="CArticulo/TreeViewHelper.cs" Line="72" Column="41" />
-      <File FileName="CArticulo/Articulo.cs" Line="146" Column="33" />
+      <File FileName="CArticulo/Articulo.cs" Line="162" Column="27" />
       <File FileName="CArticulo/MainWindow.cs" Line="35" Column="31" />
-      <File FileName="CArticulo/edit_Articulo.cs" Line="55" Column="18" />
+      <File FileName="CArticulo/edit_Articulo.cs" Line="85" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/brybre/Projects C#/CArticulo/CArticulo/Articulo.cs" relfile="CArticulo/Articulo.cs" line="172" column="1" />
+      <Breakpoint file="/home/brybre/Projects C#/CArticulo/CArticulo/Articulo.cs" relfile="CArticulo/Articulo.cs" line="171" column="1" />
+      <Breakpoint file="/home/brybre/Projects C#/CArticulo/CArticulo/Articulo.cs" relfile="CArticulo/Articulo.cs" line="170" column="19" />
+      <Breakpoint file="/home/brybre/Projects C#/CArticulo/CArticulo/Articulo.cs" relfile="CArticulo/Articulo.cs" line="169" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
