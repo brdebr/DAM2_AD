@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import serpis.ad.gui.Edit_Articulo;
 import serpis.ad.gui.Principal;
 
 public class TestMysql {
@@ -51,8 +52,10 @@ public class TestMysql {
 		
 //		Articulo.print(Articulo.select("12"));
 		
-		Principal principal = new Principal();
+		//Principal principal = new Principal();
 		
+		Edit_Articulo edit_Articulo = new Edit_Articulo();
+		edit_Articulo.setVisible(true);
 	}
 
 }

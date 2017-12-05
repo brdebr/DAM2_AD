@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="CArticulo/Articulo.cs">
     <Files>
       <File FileName="CArticulo/TreeViewHelper.cs" Line="72" Column="41" />
-      <File FileName="CArticulo/Articulo.cs" Line="162" Column="27" />
+      <File FileName="CArticulo/Articulo.cs" Line="116" Column="9" />
       <File FileName="CArticulo/MainWindow.cs" Line="35" Column="31" />
       <File FileName="CArticulo/edit_Articulo.cs" Line="85" Column="38" />
     </Files>
