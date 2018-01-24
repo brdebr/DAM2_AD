@@ -75,7 +75,7 @@ public class Cliente  implements java.io.Serializable {
     @Override
     public String toString() {
 //        return super.toString(); //To change body of generated methods, choose Tools | Templates.
-        return "\n  ID: "+String.valueOf(this.getId())+"\n  Nombre: "+this.nombre;
+        return "\n    ID: "+String.valueOf(this.getId())+"\n    Nombre: "+this.nombre;
     }
 
 

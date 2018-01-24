@@ -58,7 +58,7 @@ public class Pedidolinea  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="articulo", nullable=false)
     public Articulo getArticulo() {
         return this.articulo;
@@ -68,7 +68,7 @@ public class Pedidolinea  implements java.io.Serializable {
         this.articulo = articulo;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="pedido", nullable=false)
     public Pedido getPedido() {
         return this.pedido;
