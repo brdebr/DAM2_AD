@@ -100,8 +100,10 @@ public class Articulo  implements java.io.Serializable {
         this.pedidolineas = pedidolineas;
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.getNombre();
+    }
 
 }
 

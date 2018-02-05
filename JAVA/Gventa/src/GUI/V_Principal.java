@@ -10,6 +10,8 @@ import Hibernate.Classes.Cliente;
 import Hibernate.Classes.Pedido;
 import Hibernate.Classes.Pedidolinea;
 import Hibernate.HibernateUtil;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -36,27 +38,48 @@ public class V_Principal extends javax.swing.JFrame {
     Pedidolinea[] linea;
     Pedido seleccionado;
 
+    Session session;
+
     /**
      * Creates new form V_Principal
      */
     public V_Principal() {
         initComponents();
 
-        // --------------- PROCESO UTILIZANDO BD ------------------------------- 
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+        fillTree();
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        refreshTree();
 
-        session.beginTransaction();
+        refreshSeleccionado();
 
-        Query query = session.createQuery("from Pedido");
+        btn_crear_ped.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                V_Pedido v_Pedido = new V_Pedido();
+                v_Pedido.setVisible(true);
+                
+            }
+        });
 
-        List<Pedido> lista = query.list();
-        pedidos = lista.toArray(pedidos);
+        brn_borrar_ped.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                Query query = session.createQuery("delete Pedido where id = :ID");
+                query.setParameter("ID", seleccionado.getId());
 
-//        session.close();
-//        HibernateUtil.getSessionFactory().close();
-        // --------------- PROCESO UTILIZANDO BD ------------------------------- 
+                int result = query.executeUpdate();
+                session.flush();
+                
+                refreshTree();
+                
+            }
+        });
+
+    }
+
+    public void refreshTree() {
         DefaultMutableTreeNode pedidos_root = new DefaultMutableTreeNode("Pedidos");
 
         // BUCLE AÑADIR PEDIDOS
@@ -65,9 +88,8 @@ public class V_Principal extends javax.swing.JFrame {
             DefaultMutableTreeNode pedidoNode = new DefaultMutableTreeNode("Pedido " + pedidos[i].getId());
 
             // Rellenar un array con las lineas del pedido actual del bucle
-            Pedidolinea[] lineasAux = new Pedidolinea[1];
             Hibernate.initialize(pedidos[i].getPedidolineas());
-            lineasAux = pedidos[i].getPedidolineas().toArray(lineasAux);
+            Pedidolinea[] lineasAux = pedidos[i].getPedidolineas().toArray(new Pedidolinea[0]);
 
             // BUCLE AÑADIR ARTICULOS (lineas) A LOS PEDIDOS
             for (int j = 0; j < lineasAux.length; j++) {
@@ -84,16 +106,20 @@ public class V_Principal extends javax.swing.JFrame {
             pedidos_root.add(pedidoNode);
         }
 
+        DefaultTreeModel defaultModel = new DefaultTreeModel(pedidos_root);
+        tree_pedidos.setModel(defaultModel);
+    }
+
+    public void refreshSeleccionado() {
         tree_pedidos.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent tse) {
-//                System.out.println(tse.getPath().toString());
 
                 String[] ruta = tse.getPath().toString().substring(1).replace("]", "").split(",");
                 if (ruta.length > 1) {
                     String node = ruta[1].split(" ")[2];
-                    seleccionado = (Pedido) session.load(Pedido.class, Long.parseLong(node));
                     Hibernate.initialize(seleccionado);
+                    seleccionado = (Pedido) session.load(Pedido.class, Long.parseLong(node));
                 }
 
                 //-- DATOS PEDIDO  
@@ -106,14 +132,14 @@ public class V_Principal extends javax.swing.JFrame {
                 edit_hora_ped.setText(formatterHora.format(seleccionado.getFecha()));
 
                 edit_importe_pd.setText(String.valueOf(seleccionado.getImporte()));
-                //FIN DATOS PEDIDO --
 
                 edit_id_cliente.setText(String.valueOf(seleccionado.getCliente().getId()));
                 edit_nombre_cli.setText(String.valueOf(seleccionado.getCliente().getNombre()));
 
-                Pedidolinea[] lineasTabla = new Pedidolinea[1];
+                //FIN DATOS PEDIDO --
+                
                 Hibernate.initialize(seleccionado.getPedidolineas());
-                lineasTabla = seleccionado.getPedidolineas().toArray(lineasTabla);
+                Pedidolinea[] lineasTabla = seleccionado.getPedidolineas().toArray(new Pedidolinea[0]);
 
                 DefaultTableModel model = (DefaultTableModel) tabla_linea_ped.getModel();
                 int rows = model.getRowCount();
@@ -132,18 +158,25 @@ public class V_Principal extends javax.swing.JFrame {
                 }
             }
         });
+    }
 
-//        DefaultTreeModel model = (DefaultTreeModel) tree_pedidos.getModel();
-//        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-//        root.setUserObject("My label");
-//        model.nodeChanged(root);
-//        tree_pedidos = new JTree(pedidos_root);
-//        DefaultTreeModel defaultModel = (DefaultTreeModel) tree_pedidos.getModel();
-//        defaultModel.
-//        defaultModel.reload();
-        DefaultTreeModel defaultModel = new DefaultTreeModel(pedidos_root);
-        tree_pedidos.setModel(defaultModel);
+    private void fillTree() {
+        
+        // --------------- PROCESO UTILIZANDO BD ------------------------------- 
+        
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
 
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        Query query = session.createQuery("from Pedido");
+
+        List<Pedido> lista = query.list();
+        pedidos = lista.toArray(pedidos);
+
+        // --------------- PROCESO UTILIZANDO BD ------------------------------- 
+        
     }
 
     /**
@@ -174,6 +207,8 @@ public class V_Principal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_linea_ped = new javax.swing.JTable();
         btn_ver_articulo = new javax.swing.JButton();
+        btn_crear_ped = new javax.swing.JButton();
+        brn_borrar_ped = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -192,19 +227,18 @@ public class V_Principal extends javax.swing.JFrame {
         jLabel2.setText("Fecha");
 
         edit_id_ped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        edit_id_ped.setText("23");
         edit_id_ped.setToolTipText("");
 
         edit_fecha_ped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        edit_fecha_ped.setText("10/10/2000");
 
         jLabel3.setText("Importe Total");
+
+        edit_importe_pd.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Hora");
 
         edit_hora_ped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        edit_hora_ped.setText("10:10");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -289,10 +323,7 @@ public class V_Principal extends javax.swing.JFrame {
 
         tabla_linea_ped.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Ref.", "Artículo", "Precio", "Unidades", "Total"
@@ -301,6 +332,10 @@ public class V_Principal extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabla_linea_ped);
 
         btn_ver_articulo.setText("Ver Artículo");
+
+        btn_crear_ped.setText("Crear pedido");
+
+        brn_borrar_ped.setText("Borrar Pedido");
 
         jMenu1.setText("File");
 
@@ -324,7 +359,12 @@ public class V_Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(brn_borrar_ped)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_crear_ped)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -345,14 +385,18 @@ public class V_Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_ver_articulo))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_ver_articulo)
+                    .addComponent(btn_crear_ped)
+                    .addComponent(brn_borrar_ped))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -391,6 +435,8 @@ public class V_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton brn_borrar_ped;
+    private javax.swing.JButton btn_crear_ped;
     private javax.swing.JButton btn_ver_articulo;
     private javax.swing.JTextField edit_fecha_ped;
     private javax.swing.JTextField edit_hora_ped;
@@ -416,4 +462,5 @@ public class V_Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabla_linea_ped;
     private javax.swing.JTree tree_pedidos;
     // End of variables declaration//GEN-END:variables
+
 }
